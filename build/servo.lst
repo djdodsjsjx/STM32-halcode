@@ -1,0 +1,1011 @@
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"servo.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.pwm_servo_init,"ax",%progbits
+  16              		.align	1
+  17              		.global	pwm_servo_init
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	pwm_servo_init:
+  25              	.LFB68:
+  26              		.file 1 "Core/Src/servo.c"
+   1:Core/Src/servo.c **** #include "servo.h"
+   2:Core/Src/servo.c **** #include "tim.h"
+   3:Core/Src/servo.c **** #include "stm32f103xb.h"
+   4:Core/Src/servo.c **** #include "stm32f1xx_hal_tim.h"
+   5:Core/Src/servo.c **** 
+   6:Core/Src/servo.c **** void pwm_servo_init(void) {
+  27              		.loc 1 6 27 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+   7:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+  36              		.loc 1 7 2 view .LVU1
+  37 0002 1A4C     		ldr	r4, .L3
+  38 0004 0021     		movs	r1, #0
+  39 0006 2046     		mov	r0, r4
+  40 0008 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  41              	.LVL0:
+   8:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+  42              		.loc 1 8 2 view .LVU2
+  43 000c 0421     		movs	r1, #4
+  44 000e 2046     		mov	r0, r4
+  45 0010 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  46              	.LVL1:
+   9:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
+  47              		.loc 1 9 2 view .LVU3
+  48 0014 0821     		movs	r1, #8
+  49 0016 2046     		mov	r0, r4
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 2
+
+
+  50 0018 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  51              	.LVL2:
+  10:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
+  52              		.loc 1 10 2 view .LVU4
+  53 001c 0C21     		movs	r1, #12
+  54 001e 2046     		mov	r0, r4
+  55 0020 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  56              	.LVL3:
+  11:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  57              		.loc 1 11 2 view .LVU5
+  58 0024 124C     		ldr	r4, .L3+4
+  59 0026 0021     		movs	r1, #0
+  60 0028 2046     		mov	r0, r4
+  61 002a FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  62              	.LVL4:
+  12:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+  63              		.loc 1 12 2 view .LVU6
+  64 002e 0421     		movs	r1, #4
+  65 0030 2046     		mov	r0, r4
+  66 0032 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  67              	.LVL5:
+  13:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+  68              		.loc 1 13 2 view .LVU7
+  69 0036 0821     		movs	r1, #8
+  70 0038 2046     		mov	r0, r4
+  71 003a FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  72              	.LVL6:
+  14:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
+  73              		.loc 1 14 2 view .LVU8
+  74 003e 0C21     		movs	r1, #12
+  75 0040 2046     		mov	r0, r4
+  76 0042 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  77              	.LVL7:
+  15:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
+  78              		.loc 1 15 2 view .LVU9
+  79 0046 0B4C     		ldr	r4, .L3+8
+  80 0048 0021     		movs	r1, #0
+  81 004a 2046     		mov	r0, r4
+  82 004c FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  83              	.LVL8:
+  16:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
+  84              		.loc 1 16 2 view .LVU10
+  85 0050 0421     		movs	r1, #4
+  86 0052 2046     		mov	r0, r4
+  87 0054 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  88              	.LVL9:
+  17:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
+  89              		.loc 1 17 2 view .LVU11
+  90 0058 0821     		movs	r1, #8
+  91 005a 2046     		mov	r0, r4
+  92 005c FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  93              	.LVL10:
+  18:Core/Src/servo.c **** 	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
+  94              		.loc 1 18 2 view .LVU12
+  95 0060 0C21     		movs	r1, #12
+  96 0062 2046     		mov	r0, r4
+  97 0064 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 3
+
+
+  98              	.LVL11:
+  19:Core/Src/servo.c **** }
+  99              		.loc 1 19 1 is_stmt 0 view .LVU13
+ 100 0068 10BD     		pop	{r4, pc}
+ 101              	.L4:
+ 102 006a 00BF     		.align	2
+ 103              	.L3:
+ 104 006c 00000000 		.word	htim2
+ 105 0070 00000000 		.word	htim3
+ 106 0074 00000000 		.word	htim4
+ 107              		.cfi_endproc
+ 108              	.LFE68:
+ 110              		.global	__aeabi_i2d
+ 111              		.global	__aeabi_ddiv
+ 112              		.global	__aeabi_dadd
+ 113              		.global	__aeabi_d2uiz
+ 114              		.section	.text.position,"ax",%progbits
+ 115              		.align	1
+ 116              		.global	position
+ 117              		.syntax unified
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.fpu softvfp
+ 122              	position:
+ 123              	.LVL12:
+ 124              	.LFB69:
+  20:Core/Src/servo.c **** 
+  21:Core/Src/servo.c **** void position(uint8_t ID ,uint16_t degrees) { 
+ 125              		.loc 1 21 45 is_stmt 1 view -0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		.loc 1 21 45 is_stmt 0 view .LVU15
+ 130 0000 08B5     		push	{r3, lr}
+ 131              	.LCFI1:
+ 132              		.cfi_def_cfa_offset 8
+ 133              		.cfi_offset 3, -8
+ 134              		.cfi_offset 14, -4
+  22:Core/Src/servo.c **** 	uint16_t pulse;
+ 135              		.loc 1 22 2 is_stmt 1 view .LVU16
+  23:Core/Src/servo.c **** 	switch(ID)
+ 136              		.loc 1 23 2 view .LVU17
+ 137 0002 0138     		subs	r0, r0, #1
+ 138              	.LVL13:
+ 139              		.loc 1 23 2 is_stmt 0 view .LVU18
+ 140 0004 0B28     		cmp	r0, #11
+ 141 0006 1FD8     		bhi	.L5
+ 142 0008 DFE810F0 		tbh	[pc, r0, lsl #1]
+ 143              	.L8:
+ 144 000c 0C00     		.2byte	(.L19-.L8)/2
+ 145 000e 1F00     		.2byte	(.L18-.L8)/2
+ 146 0010 3A00     		.2byte	(.L17-.L8)/2
+ 147 0012 5500     		.2byte	(.L16-.L8)/2
+ 148 0014 6800     		.2byte	(.L15-.L8)/2
+ 149 0016 8300     		.2byte	(.L14-.L8)/2
+ 150 0018 9E00     		.2byte	(.L13-.L8)/2
+ 151 001a B100     		.2byte	(.L12-.L8)/2
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 4
+
+
+ 152 001c CC00     		.2byte	(.L11-.L8)/2
+ 153 001e E700     		.2byte	(.L10-.L8)/2
+ 154 0020 FA00     		.2byte	(.L9-.L8)/2
+ 155 0022 1501     		.2byte	(.L7-.L8)/2
+ 156              		.p2align 1
+ 157              	.L19:
+  24:Core/Src/servo.c **** 	{
+  25:Core/Src/servo.c **** 		case 1:
+  26:Core/Src/servo.c **** 		{
+  27:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,115);
+ 158              		.loc 1 27 4 is_stmt 1 view .LVU19
+ 159              		.loc 1 27 12 is_stmt 0 view .LVU20
+ 160 0024 0529     		cmp	r1, #5
+ 161 0026 04D9     		bls	.L32
+ 162              		.loc 1 27 12 discriminator 1 view .LVU21
+ 163 0028 7329     		cmp	r1, #115
+ 164 002a 28BF     		it	cs
+ 165 002c 7321     		movcs	r1, #115
+ 166              	.LVL14:
+ 167              		.loc 1 27 12 discriminator 1 view .LVU22
+ 168 002e 0846     		mov	r0, r1
+ 169 0030 00E0     		b	.L20
+ 170              	.LVL15:
+ 171              	.L32:
+ 172              		.loc 1 27 12 view .LVU23
+ 173 0032 0520     		movs	r0, #5
+ 174              	.LVL16:
+ 175              	.L20:
+  28:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 176              		.loc 1 28 4 is_stmt 1 discriminator 4 view .LVU24
+ 177              		.loc 1 28 12 is_stmt 0 discriminator 4 view .LVU25
+ 178 0034 00EB8000 		add	r0, r0, r0, lsl #2
+ 179              	.LVL17:
+ 180              		.loc 1 28 12 discriminator 4 view .LVU26
+ 181 0038 4300     		lsls	r3, r0, #1
+ 182 003a 9BB2     		uxth	r3, r3
+ 183              		.loc 1 28 10 discriminator 4 view .LVU27
+ 184 003c 03F56173 		add	r3, r3, #900
+ 185 0040 9BB2     		uxth	r3, r3
+ 186              	.LVL18:
+  29:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 187              		.loc 1 29 4 is_stmt 1 discriminator 4 view .LVU28
+ 188 0042 8A4A     		ldr	r2, .L45
+ 189 0044 1268     		ldr	r2, [r2]
+ 190 0046 5363     		str	r3, [r2, #52]
+  30:Core/Src/servo.c **** 			// TIM_SetCompare1(TIM2, pulse);      
+  31:Core/Src/servo.c **** 			break;
+ 191              		.loc 1 31 4 discriminator 4 view .LVU29
+ 192              	.LVL19:
+ 193              	.L5:
+  32:Core/Src/servo.c **** 		}
+  33:Core/Src/servo.c **** 		case 2:
+  34:Core/Src/servo.c **** 		{
+  35:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,175);
+  36:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+  37:Core/Src/servo.c **** 
+  38:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 5
+
+
+  39:Core/Src/servo.c **** 			break;
+  40:Core/Src/servo.c **** 		}
+  41:Core/Src/servo.c **** 		case 3:
+  42:Core/Src/servo.c **** 		{
+  43:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,175);
+  44:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+  45:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+  46:Core/Src/servo.c **** 			break;
+  47:Core/Src/servo.c **** 		}
+  48:Core/Src/servo.c **** 		
+  49:Core/Src/servo.c **** 		case 4:
+  50:Core/Src/servo.c **** 		{
+  51:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,115);
+  52:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+  53:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+  54:Core/Src/servo.c **** 			break;
+  55:Core/Src/servo.c **** 		}
+  56:Core/Src/servo.c **** 		case 5:
+  57:Core/Src/servo.c **** 		{
+  58:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,175);
+  59:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+  60:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+  61:Core/Src/servo.c **** 			break;
+  62:Core/Src/servo.c **** 		}
+  63:Core/Src/servo.c **** 		case 6:
+  64:Core/Src/servo.c **** 		{
+  65:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,175);
+  66:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+  67:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+  68:Core/Src/servo.c **** 			break;
+  69:Core/Src/servo.c **** 		}
+  70:Core/Src/servo.c **** 		
+  71:Core/Src/servo.c **** 		case 7:
+  72:Core/Src/servo.c **** 		{
+  73:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,115);
+  74:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+  75:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);   
+  76:Core/Src/servo.c **** 			break;
+  77:Core/Src/servo.c **** 		}
+  78:Core/Src/servo.c **** 		case 8:
+  79:Core/Src/servo.c **** 		{
+  80:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,175);
+  81:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+  82:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);    
+  83:Core/Src/servo.c **** 			break;
+  84:Core/Src/servo.c **** 		}
+  85:Core/Src/servo.c **** 		case 9:
+  86:Core/Src/servo.c **** 		{
+  87:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,175);
+  88:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+  89:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);   
+  90:Core/Src/servo.c **** 			break;
+  91:Core/Src/servo.c **** 		}
+  92:Core/Src/servo.c **** 		
+  93:Core/Src/servo.c **** 		case 10:
+  94:Core/Src/servo.c **** 		{
+  95:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,115);
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 6
+
+
+  96:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+  97:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+  98:Core/Src/servo.c **** 			break;
+  99:Core/Src/servo.c **** 		}
+ 100:Core/Src/servo.c **** 		case 11:
+ 101:Core/Src/servo.c **** 		{
+ 102:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,175);
+ 103:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 104:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+ 105:Core/Src/servo.c **** 			break;
+ 106:Core/Src/servo.c **** 		}
+ 107:Core/Src/servo.c **** 		case 12:
+ 108:Core/Src/servo.c **** 		{
+ 109:Core/Src/servo.c **** 			degrees = LIMIT(degrees,5,175);
+ 110:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 111:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+ 112:Core/Src/servo.c **** 			break;
+ 113:Core/Src/servo.c **** 		}
+ 114:Core/Src/servo.c **** 		default: ;
+ 115:Core/Src/servo.c **** 	}
+ 116:Core/Src/servo.c **** 	
+ 117:Core/Src/servo.c **** }
+ 194              		.loc 1 117 1 is_stmt 0 view .LVU30
+ 195 0048 08BD     		pop	{r3, pc}
+ 196              	.LVL20:
+ 197              	.L18:
+  35:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 198              		.loc 1 35 4 is_stmt 1 view .LVU31
+  35:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 199              		.loc 1 35 12 is_stmt 0 view .LVU32
+ 200 004a 0529     		cmp	r1, #5
+ 201 004c 03D9     		bls	.L33
+  35:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 202              		.loc 1 35 12 discriminator 1 view .LVU33
+ 203 004e AF29     		cmp	r1, #175
+ 204 0050 28BF     		it	cs
+ 205 0052 AF21     		movcs	r1, #175
+ 206              	.LVL21:
+  35:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 207              		.loc 1 35 12 discriminator 1 view .LVU34
+ 208 0054 00E0     		b	.L21
+ 209              	.LVL22:
+ 210              	.L33:
+  35:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 211              		.loc 1 35 12 view .LVU35
+ 212 0056 0521     		movs	r1, #5
+ 213              	.LVL23:
+ 214              	.L21:
+  36:Core/Src/servo.c **** 
+ 215              		.loc 1 36 4 is_stmt 1 discriminator 4 view .LVU36
+  36:Core/Src/servo.c **** 
+ 216              		.loc 1 36 42 is_stmt 0 discriminator 4 view .LVU37
+ 217 0058 6420     		movs	r0, #100
+ 218 005a 01FB00F0 		mul	r0, r1, r0
+ 219 005e FFF7FEFF 		bl	__aeabi_i2d
+ 220              	.LVL24:
+  36:Core/Src/servo.c **** 
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 7
+
+
+ 221              		.loc 1 36 42 discriminator 4 view .LVU38
+ 222 0062 0022     		movs	r2, #0
+ 223 0064 824B     		ldr	r3, .L45+4
+ 224 0066 FFF7FEFF 		bl	__aeabi_ddiv
+ 225              	.LVL25:
+  36:Core/Src/servo.c **** 
+ 226              		.loc 1 36 27 discriminator 4 view .LVU39
+ 227 006a 0022     		movs	r2, #0
+ 228 006c 814B     		ldr	r3, .L45+8
+ 229 006e FFF7FEFF 		bl	__aeabi_dadd
+ 230              	.LVL26:
+  36:Core/Src/servo.c **** 
+ 231              		.loc 1 36 10 discriminator 4 view .LVU40
+ 232 0072 FFF7FEFF 		bl	__aeabi_d2uiz
+ 233              	.LVL27:
+ 234 0076 80B2     		uxth	r0, r0
+ 235              	.LVL28:
+  38:Core/Src/servo.c **** 			break;
+ 236              		.loc 1 38 4 is_stmt 1 discriminator 4 view .LVU41
+ 237 0078 7C4B     		ldr	r3, .L45
+ 238 007a 1B68     		ldr	r3, [r3]
+ 239 007c 5863     		str	r0, [r3, #52]
+  39:Core/Src/servo.c **** 		}
+ 240              		.loc 1 39 4 discriminator 4 view .LVU42
+ 241 007e E3E7     		b	.L5
+ 242              	.LVL29:
+ 243              	.L17:
+  43:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 244              		.loc 1 43 4 view .LVU43
+  43:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 245              		.loc 1 43 12 is_stmt 0 view .LVU44
+ 246 0080 0529     		cmp	r1, #5
+ 247 0082 03D9     		bls	.L34
+  43:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 248              		.loc 1 43 12 discriminator 1 view .LVU45
+ 249 0084 AF29     		cmp	r1, #175
+ 250 0086 28BF     		it	cs
+ 251 0088 AF21     		movcs	r1, #175
+ 252              	.LVL30:
+  43:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 253              		.loc 1 43 12 discriminator 1 view .LVU46
+ 254 008a 00E0     		b	.L22
+ 255              	.LVL31:
+ 256              	.L34:
+  43:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 257              		.loc 1 43 12 view .LVU47
+ 258 008c 0521     		movs	r1, #5
+ 259              	.LVL32:
+ 260              	.L22:
+  44:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 261              		.loc 1 44 4 is_stmt 1 discriminator 4 view .LVU48
+  44:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 262              		.loc 1 44 42 is_stmt 0 discriminator 4 view .LVU49
+ 263 008e 6420     		movs	r0, #100
+ 264 0090 01FB00F0 		mul	r0, r1, r0
+ 265 0094 FFF7FEFF 		bl	__aeabi_i2d
+ 266              	.LVL33:
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 8
+
+
+  44:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 267              		.loc 1 44 42 discriminator 4 view .LVU50
+ 268 0098 0022     		movs	r2, #0
+ 269 009a 754B     		ldr	r3, .L45+4
+ 270 009c FFF7FEFF 		bl	__aeabi_ddiv
+ 271              	.LVL34:
+  44:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 272              		.loc 1 44 27 discriminator 4 view .LVU51
+ 273 00a0 0022     		movs	r2, #0
+ 274 00a2 744B     		ldr	r3, .L45+8
+ 275 00a4 FFF7FEFF 		bl	__aeabi_dadd
+ 276              	.LVL35:
+  44:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 277              		.loc 1 44 10 discriminator 4 view .LVU52
+ 278 00a8 FFF7FEFF 		bl	__aeabi_d2uiz
+ 279              	.LVL36:
+ 280 00ac 80B2     		uxth	r0, r0
+ 281              	.LVL37:
+  45:Core/Src/servo.c **** 			break;
+ 282              		.loc 1 45 4 is_stmt 1 discriminator 4 view .LVU53
+ 283 00ae 6F4B     		ldr	r3, .L45
+ 284 00b0 1B68     		ldr	r3, [r3]
+ 285 00b2 5863     		str	r0, [r3, #52]
+  46:Core/Src/servo.c **** 		}
+ 286              		.loc 1 46 4 discriminator 4 view .LVU54
+ 287 00b4 C8E7     		b	.L5
+ 288              	.LVL38:
+ 289              	.L16:
+  51:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 290              		.loc 1 51 4 view .LVU55
+  51:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 291              		.loc 1 51 12 is_stmt 0 view .LVU56
+ 292 00b6 0529     		cmp	r1, #5
+ 293 00b8 04D9     		bls	.L35
+  51:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 294              		.loc 1 51 12 discriminator 1 view .LVU57
+ 295 00ba 7329     		cmp	r1, #115
+ 296 00bc 28BF     		it	cs
+ 297 00be 7321     		movcs	r1, #115
+ 298              	.LVL39:
+  51:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 299              		.loc 1 51 12 discriminator 1 view .LVU58
+ 300 00c0 0846     		mov	r0, r1
+ 301 00c2 00E0     		b	.L23
+ 302              	.LVL40:
+ 303              	.L35:
+  51:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 304              		.loc 1 51 12 view .LVU59
+ 305 00c4 0520     		movs	r0, #5
+ 306              	.LVL41:
+ 307              	.L23:
+  52:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 308              		.loc 1 52 4 is_stmt 1 discriminator 4 view .LVU60
+  52:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 309              		.loc 1 52 12 is_stmt 0 discriminator 4 view .LVU61
+ 310 00c6 00EB8000 		add	r0, r0, r0, lsl #2
+ 311              	.LVL42:
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 9
+
+
+  52:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 312              		.loc 1 52 12 discriminator 4 view .LVU62
+ 313 00ca 4300     		lsls	r3, r0, #1
+ 314 00cc 9BB2     		uxth	r3, r3
+  52:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 315              		.loc 1 52 10 discriminator 4 view .LVU63
+ 316 00ce 03F56173 		add	r3, r3, #900
+ 317 00d2 9BB2     		uxth	r3, r3
+ 318              	.LVL43:
+  53:Core/Src/servo.c **** 			break;
+ 319              		.loc 1 53 4 is_stmt 1 discriminator 4 view .LVU64
+ 320 00d4 654A     		ldr	r2, .L45
+ 321 00d6 1268     		ldr	r2, [r2]
+ 322 00d8 5363     		str	r3, [r2, #52]
+  54:Core/Src/servo.c **** 		}
+ 323              		.loc 1 54 4 discriminator 4 view .LVU65
+ 324 00da B5E7     		b	.L5
+ 325              	.LVL44:
+ 326              	.L15:
+  58:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 327              		.loc 1 58 4 view .LVU66
+  58:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 328              		.loc 1 58 12 is_stmt 0 view .LVU67
+ 329 00dc 0529     		cmp	r1, #5
+ 330 00de 03D9     		bls	.L36
+  58:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 331              		.loc 1 58 12 discriminator 1 view .LVU68
+ 332 00e0 AF29     		cmp	r1, #175
+ 333 00e2 28BF     		it	cs
+ 334 00e4 AF21     		movcs	r1, #175
+ 335              	.LVL45:
+  58:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 336              		.loc 1 58 12 discriminator 1 view .LVU69
+ 337 00e6 00E0     		b	.L24
+ 338              	.LVL46:
+ 339              	.L36:
+  58:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 340              		.loc 1 58 12 view .LVU70
+ 341 00e8 0521     		movs	r1, #5
+ 342              	.LVL47:
+ 343              	.L24:
+  59:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+ 344              		.loc 1 59 4 is_stmt 1 discriminator 4 view .LVU71
+  59:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+ 345              		.loc 1 59 42 is_stmt 0 discriminator 4 view .LVU72
+ 346 00ea 6420     		movs	r0, #100
+ 347 00ec 01FB00F0 		mul	r0, r1, r0
+ 348 00f0 FFF7FEFF 		bl	__aeabi_i2d
+ 349              	.LVL48:
+  59:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+ 350              		.loc 1 59 42 discriminator 4 view .LVU73
+ 351 00f4 0022     		movs	r2, #0
+ 352 00f6 5E4B     		ldr	r3, .L45+4
+ 353 00f8 FFF7FEFF 		bl	__aeabi_ddiv
+ 354              	.LVL49:
+  59:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+ 355              		.loc 1 59 27 discriminator 4 view .LVU74
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 10
+
+
+ 356 00fc 0022     		movs	r2, #0
+ 357 00fe 5D4B     		ldr	r3, .L45+8
+ 358 0100 FFF7FEFF 		bl	__aeabi_dadd
+ 359              	.LVL50:
+  59:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+ 360              		.loc 1 59 10 discriminator 4 view .LVU75
+ 361 0104 FFF7FEFF 		bl	__aeabi_d2uiz
+ 362              	.LVL51:
+ 363 0108 80B2     		uxth	r0, r0
+ 364              	.LVL52:
+  60:Core/Src/servo.c **** 			break;
+ 365              		.loc 1 60 4 is_stmt 1 discriminator 4 view .LVU76
+ 366 010a 584B     		ldr	r3, .L45
+ 367 010c 1B68     		ldr	r3, [r3]
+ 368 010e 5863     		str	r0, [r3, #52]
+  61:Core/Src/servo.c **** 		}
+ 369              		.loc 1 61 4 discriminator 4 view .LVU77
+ 370 0110 9AE7     		b	.L5
+ 371              	.LVL53:
+ 372              	.L14:
+  65:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 373              		.loc 1 65 4 view .LVU78
+  65:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 374              		.loc 1 65 12 is_stmt 0 view .LVU79
+ 375 0112 0529     		cmp	r1, #5
+ 376 0114 03D9     		bls	.L37
+  65:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 377              		.loc 1 65 12 discriminator 1 view .LVU80
+ 378 0116 AF29     		cmp	r1, #175
+ 379 0118 28BF     		it	cs
+ 380 011a AF21     		movcs	r1, #175
+ 381              	.LVL54:
+  65:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 382              		.loc 1 65 12 discriminator 1 view .LVU81
+ 383 011c 00E0     		b	.L25
+ 384              	.LVL55:
+ 385              	.L37:
+  65:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 386              		.loc 1 65 12 view .LVU82
+ 387 011e 0521     		movs	r1, #5
+ 388              	.LVL56:
+ 389              	.L25:
+  66:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+ 390              		.loc 1 66 4 is_stmt 1 discriminator 4 view .LVU83
+  66:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+ 391              		.loc 1 66 42 is_stmt 0 discriminator 4 view .LVU84
+ 392 0120 6420     		movs	r0, #100
+ 393 0122 01FB00F0 		mul	r0, r1, r0
+ 394 0126 FFF7FEFF 		bl	__aeabi_i2d
+ 395              	.LVL57:
+  66:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+ 396              		.loc 1 66 42 discriminator 4 view .LVU85
+ 397 012a 0022     		movs	r2, #0
+ 398 012c 504B     		ldr	r3, .L45+4
+ 399 012e FFF7FEFF 		bl	__aeabi_ddiv
+ 400              	.LVL58:
+  66:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 11
+
+
+ 401              		.loc 1 66 27 discriminator 4 view .LVU86
+ 402 0132 0022     		movs	r2, #0
+ 403 0134 4F4B     		ldr	r3, .L45+8
+ 404 0136 FFF7FEFF 		bl	__aeabi_dadd
+ 405              	.LVL59:
+  66:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+ 406              		.loc 1 66 10 discriminator 4 view .LVU87
+ 407 013a FFF7FEFF 		bl	__aeabi_d2uiz
+ 408              	.LVL60:
+ 409 013e 80B2     		uxth	r0, r0
+ 410              	.LVL61:
+  67:Core/Src/servo.c **** 			break;
+ 411              		.loc 1 67 4 is_stmt 1 discriminator 4 view .LVU88
+ 412 0140 4A4B     		ldr	r3, .L45
+ 413 0142 1B68     		ldr	r3, [r3]
+ 414 0144 5863     		str	r0, [r3, #52]
+  68:Core/Src/servo.c **** 		}
+ 415              		.loc 1 68 4 discriminator 4 view .LVU89
+ 416 0146 7FE7     		b	.L5
+ 417              	.LVL62:
+ 418              	.L13:
+  73:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 419              		.loc 1 73 4 view .LVU90
+  73:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 420              		.loc 1 73 12 is_stmt 0 view .LVU91
+ 421 0148 0529     		cmp	r1, #5
+ 422 014a 04D9     		bls	.L38
+  73:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 423              		.loc 1 73 12 discriminator 1 view .LVU92
+ 424 014c 7329     		cmp	r1, #115
+ 425 014e 28BF     		it	cs
+ 426 0150 7321     		movcs	r1, #115
+ 427              	.LVL63:
+  73:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 428              		.loc 1 73 12 discriminator 1 view .LVU93
+ 429 0152 0846     		mov	r0, r1
+ 430 0154 00E0     		b	.L26
+ 431              	.LVL64:
+ 432              	.L38:
+  73:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 433              		.loc 1 73 12 view .LVU94
+ 434 0156 0520     		movs	r0, #5
+ 435              	.LVL65:
+ 436              	.L26:
+  74:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);   
+ 437              		.loc 1 74 4 is_stmt 1 discriminator 4 view .LVU95
+  74:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);   
+ 438              		.loc 1 74 12 is_stmt 0 discriminator 4 view .LVU96
+ 439 0158 00EB8000 		add	r0, r0, r0, lsl #2
+ 440              	.LVL66:
+  74:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);   
+ 441              		.loc 1 74 12 discriminator 4 view .LVU97
+ 442 015c 4300     		lsls	r3, r0, #1
+ 443 015e 9BB2     		uxth	r3, r3
+  74:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);   
+ 444              		.loc 1 74 10 discriminator 4 view .LVU98
+ 445 0160 03F56173 		add	r3, r3, #900
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 12
+
+
+ 446 0164 9BB2     		uxth	r3, r3
+ 447              	.LVL67:
+  75:Core/Src/servo.c **** 			break;
+ 448              		.loc 1 75 4 is_stmt 1 discriminator 4 view .LVU99
+ 449 0166 414A     		ldr	r2, .L45
+ 450 0168 1268     		ldr	r2, [r2]
+ 451 016a 5363     		str	r3, [r2, #52]
+  76:Core/Src/servo.c **** 		}
+ 452              		.loc 1 76 4 discriminator 4 view .LVU100
+ 453 016c 6CE7     		b	.L5
+ 454              	.LVL68:
+ 455              	.L12:
+  80:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 456              		.loc 1 80 4 view .LVU101
+  80:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 457              		.loc 1 80 12 is_stmt 0 view .LVU102
+ 458 016e 0529     		cmp	r1, #5
+ 459 0170 03D9     		bls	.L39
+  80:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 460              		.loc 1 80 12 discriminator 1 view .LVU103
+ 461 0172 AF29     		cmp	r1, #175
+ 462 0174 28BF     		it	cs
+ 463 0176 AF21     		movcs	r1, #175
+ 464              	.LVL69:
+  80:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 465              		.loc 1 80 12 discriminator 1 view .LVU104
+ 466 0178 00E0     		b	.L27
+ 467              	.LVL70:
+ 468              	.L39:
+  80:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 469              		.loc 1 80 12 view .LVU105
+ 470 017a 0521     		movs	r1, #5
+ 471              	.LVL71:
+ 472              	.L27:
+  81:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);    
+ 473              		.loc 1 81 4 is_stmt 1 discriminator 4 view .LVU106
+  81:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);    
+ 474              		.loc 1 81 42 is_stmt 0 discriminator 4 view .LVU107
+ 475 017c 6420     		movs	r0, #100
+ 476 017e 01FB00F0 		mul	r0, r1, r0
+ 477 0182 FFF7FEFF 		bl	__aeabi_i2d
+ 478              	.LVL72:
+  81:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);    
+ 479              		.loc 1 81 42 discriminator 4 view .LVU108
+ 480 0186 0022     		movs	r2, #0
+ 481 0188 394B     		ldr	r3, .L45+4
+ 482 018a FFF7FEFF 		bl	__aeabi_ddiv
+ 483              	.LVL73:
+  81:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);    
+ 484              		.loc 1 81 27 discriminator 4 view .LVU109
+ 485 018e 0022     		movs	r2, #0
+ 486 0190 384B     		ldr	r3, .L45+8
+ 487 0192 FFF7FEFF 		bl	__aeabi_dadd
+ 488              	.LVL74:
+  81:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);    
+ 489              		.loc 1 81 10 discriminator 4 view .LVU110
+ 490 0196 FFF7FEFF 		bl	__aeabi_d2uiz
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 13
+
+
+ 491              	.LVL75:
+ 492 019a 80B2     		uxth	r0, r0
+ 493              	.LVL76:
+  82:Core/Src/servo.c **** 			break;
+ 494              		.loc 1 82 4 is_stmt 1 discriminator 4 view .LVU111
+ 495 019c 334B     		ldr	r3, .L45
+ 496 019e 1B68     		ldr	r3, [r3]
+ 497 01a0 5863     		str	r0, [r3, #52]
+  83:Core/Src/servo.c **** 		}
+ 498              		.loc 1 83 4 discriminator 4 view .LVU112
+ 499 01a2 51E7     		b	.L5
+ 500              	.LVL77:
+ 501              	.L11:
+  87:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 502              		.loc 1 87 4 view .LVU113
+  87:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 503              		.loc 1 87 12 is_stmt 0 view .LVU114
+ 504 01a4 0529     		cmp	r1, #5
+ 505 01a6 03D9     		bls	.L40
+  87:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 506              		.loc 1 87 12 discriminator 1 view .LVU115
+ 507 01a8 AF29     		cmp	r1, #175
+ 508 01aa 28BF     		it	cs
+ 509 01ac AF21     		movcs	r1, #175
+ 510              	.LVL78:
+  87:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 511              		.loc 1 87 12 discriminator 1 view .LVU116
+ 512 01ae 00E0     		b	.L28
+ 513              	.LVL79:
+ 514              	.L40:
+  87:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 515              		.loc 1 87 12 view .LVU117
+ 516 01b0 0521     		movs	r1, #5
+ 517              	.LVL80:
+ 518              	.L28:
+  88:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);   
+ 519              		.loc 1 88 4 is_stmt 1 discriminator 4 view .LVU118
+  88:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);   
+ 520              		.loc 1 88 42 is_stmt 0 discriminator 4 view .LVU119
+ 521 01b2 6420     		movs	r0, #100
+ 522 01b4 01FB00F0 		mul	r0, r1, r0
+ 523 01b8 FFF7FEFF 		bl	__aeabi_i2d
+ 524              	.LVL81:
+  88:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);   
+ 525              		.loc 1 88 42 discriminator 4 view .LVU120
+ 526 01bc 0022     		movs	r2, #0
+ 527 01be 2C4B     		ldr	r3, .L45+4
+ 528 01c0 FFF7FEFF 		bl	__aeabi_ddiv
+ 529              	.LVL82:
+  88:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);   
+ 530              		.loc 1 88 27 discriminator 4 view .LVU121
+ 531 01c4 0022     		movs	r2, #0
+ 532 01c6 2B4B     		ldr	r3, .L45+8
+ 533 01c8 FFF7FEFF 		bl	__aeabi_dadd
+ 534              	.LVL83:
+  88:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);   
+ 535              		.loc 1 88 10 discriminator 4 view .LVU122
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 14
+
+
+ 536 01cc FFF7FEFF 		bl	__aeabi_d2uiz
+ 537              	.LVL84:
+ 538 01d0 80B2     		uxth	r0, r0
+ 539              	.LVL85:
+  89:Core/Src/servo.c **** 			break;
+ 540              		.loc 1 89 4 is_stmt 1 discriminator 4 view .LVU123
+ 541 01d2 264B     		ldr	r3, .L45
+ 542 01d4 1B68     		ldr	r3, [r3]
+ 543 01d6 5863     		str	r0, [r3, #52]
+  90:Core/Src/servo.c **** 		}
+ 544              		.loc 1 90 4 discriminator 4 view .LVU124
+ 545 01d8 36E7     		b	.L5
+ 546              	.LVL86:
+ 547              	.L10:
+  95:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 548              		.loc 1 95 4 view .LVU125
+  95:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 549              		.loc 1 95 12 is_stmt 0 view .LVU126
+ 550 01da 0529     		cmp	r1, #5
+ 551 01dc 04D9     		bls	.L41
+  95:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 552              		.loc 1 95 12 discriminator 1 view .LVU127
+ 553 01de 7329     		cmp	r1, #115
+ 554 01e0 28BF     		it	cs
+ 555 01e2 7321     		movcs	r1, #115
+ 556              	.LVL87:
+  95:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 557              		.loc 1 95 12 discriminator 1 view .LVU128
+ 558 01e4 0846     		mov	r0, r1
+ 559 01e6 00E0     		b	.L29
+ 560              	.LVL88:
+ 561              	.L41:
+  95:Core/Src/servo.c **** 			pulse = (uint16_t)(900 + degrees * 10); 
+ 562              		.loc 1 95 12 view .LVU129
+ 563 01e8 0520     		movs	r0, #5
+ 564              	.LVL89:
+ 565              	.L29:
+  96:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 566              		.loc 1 96 4 is_stmt 1 discriminator 4 view .LVU130
+  96:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 567              		.loc 1 96 12 is_stmt 0 discriminator 4 view .LVU131
+ 568 01ea 00EB8000 		add	r0, r0, r0, lsl #2
+ 569              	.LVL90:
+  96:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 570              		.loc 1 96 12 discriminator 4 view .LVU132
+ 571 01ee 4300     		lsls	r3, r0, #1
+ 572 01f0 9BB2     		uxth	r3, r3
+  96:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);
+ 573              		.loc 1 96 10 discriminator 4 view .LVU133
+ 574 01f2 03F56173 		add	r3, r3, #900
+ 575 01f6 9BB2     		uxth	r3, r3
+ 576              	.LVL91:
+  97:Core/Src/servo.c **** 			break;
+ 577              		.loc 1 97 4 is_stmt 1 discriminator 4 view .LVU134
+ 578 01f8 1C4A     		ldr	r2, .L45
+ 579 01fa 1268     		ldr	r2, [r2]
+ 580 01fc 5363     		str	r3, [r2, #52]
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 15
+
+
+  98:Core/Src/servo.c **** 		}
+ 581              		.loc 1 98 4 discriminator 4 view .LVU135
+ 582 01fe 23E7     		b	.L5
+ 583              	.LVL92:
+ 584              	.L9:
+ 102:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 585              		.loc 1 102 4 view .LVU136
+ 102:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 586              		.loc 1 102 12 is_stmt 0 view .LVU137
+ 587 0200 0529     		cmp	r1, #5
+ 588 0202 03D9     		bls	.L42
+ 102:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 589              		.loc 1 102 12 discriminator 1 view .LVU138
+ 590 0204 AF29     		cmp	r1, #175
+ 591 0206 28BF     		it	cs
+ 592 0208 AF21     		movcs	r1, #175
+ 593              	.LVL93:
+ 102:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 594              		.loc 1 102 12 discriminator 1 view .LVU139
+ 595 020a 00E0     		b	.L30
+ 596              	.LVL94:
+ 597              	.L42:
+ 102:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 598              		.loc 1 102 12 view .LVU140
+ 599 020c 0521     		movs	r1, #5
+ 600              	.LVL95:
+ 601              	.L30:
+ 103:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+ 602              		.loc 1 103 4 is_stmt 1 discriminator 4 view .LVU141
+ 103:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+ 603              		.loc 1 103 42 is_stmt 0 discriminator 4 view .LVU142
+ 604 020e 6420     		movs	r0, #100
+ 605 0210 01FB00F0 		mul	r0, r1, r0
+ 606 0214 FFF7FEFF 		bl	__aeabi_i2d
+ 607              	.LVL96:
+ 103:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+ 608              		.loc 1 103 42 discriminator 4 view .LVU143
+ 609 0218 0022     		movs	r2, #0
+ 610 021a 154B     		ldr	r3, .L45+4
+ 611 021c FFF7FEFF 		bl	__aeabi_ddiv
+ 612              	.LVL97:
+ 103:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+ 613              		.loc 1 103 27 discriminator 4 view .LVU144
+ 614 0220 0022     		movs	r2, #0
+ 615 0222 144B     		ldr	r3, .L45+8
+ 616 0224 FFF7FEFF 		bl	__aeabi_dadd
+ 617              	.LVL98:
+ 103:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse);  
+ 618              		.loc 1 103 10 discriminator 4 view .LVU145
+ 619 0228 FFF7FEFF 		bl	__aeabi_d2uiz
+ 620              	.LVL99:
+ 621 022c 80B2     		uxth	r0, r0
+ 622              	.LVL100:
+ 104:Core/Src/servo.c **** 			break;
+ 623              		.loc 1 104 4 is_stmt 1 discriminator 4 view .LVU146
+ 624 022e 0F4B     		ldr	r3, .L45
+ 625 0230 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 16
+
+
+ 626 0232 5863     		str	r0, [r3, #52]
+ 105:Core/Src/servo.c **** 		}
+ 627              		.loc 1 105 4 discriminator 4 view .LVU147
+ 628 0234 08E7     		b	.L5
+ 629              	.LVL101:
+ 630              	.L7:
+ 109:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 631              		.loc 1 109 4 view .LVU148
+ 109:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 632              		.loc 1 109 12 is_stmt 0 view .LVU149
+ 633 0236 0529     		cmp	r1, #5
+ 634 0238 03D9     		bls	.L43
+ 109:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 635              		.loc 1 109 12 discriminator 1 view .LVU150
+ 636 023a AF29     		cmp	r1, #175
+ 637 023c 28BF     		it	cs
+ 638 023e AF21     		movcs	r1, #175
+ 639              	.LVL102:
+ 109:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 640              		.loc 1 109 12 discriminator 1 view .LVU151
+ 641 0240 00E0     		b	.L31
+ 642              	.LVL103:
+ 643              	.L43:
+ 109:Core/Src/servo.c **** 			pulse = (uint16_t)(500 + degrees * 100/9.0); 
+ 644              		.loc 1 109 12 view .LVU152
+ 645 0242 0521     		movs	r1, #5
+ 646              	.LVL104:
+ 647              	.L31:
+ 110:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+ 648              		.loc 1 110 4 is_stmt 1 discriminator 4 view .LVU153
+ 110:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+ 649              		.loc 1 110 42 is_stmt 0 discriminator 4 view .LVU154
+ 650 0244 6420     		movs	r0, #100
+ 651 0246 01FB00F0 		mul	r0, r1, r0
+ 652 024a FFF7FEFF 		bl	__aeabi_i2d
+ 653              	.LVL105:
+ 110:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+ 654              		.loc 1 110 42 discriminator 4 view .LVU155
+ 655 024e 0022     		movs	r2, #0
+ 656 0250 074B     		ldr	r3, .L45+4
+ 657 0252 FFF7FEFF 		bl	__aeabi_ddiv
+ 658              	.LVL106:
+ 110:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+ 659              		.loc 1 110 27 discriminator 4 view .LVU156
+ 660 0256 0022     		movs	r2, #0
+ 661 0258 064B     		ldr	r3, .L45+8
+ 662 025a FFF7FEFF 		bl	__aeabi_dadd
+ 663              	.LVL107:
+ 110:Core/Src/servo.c **** 			__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, pulse); 
+ 664              		.loc 1 110 10 discriminator 4 view .LVU157
+ 665 025e FFF7FEFF 		bl	__aeabi_d2uiz
+ 666              	.LVL108:
+ 667 0262 80B2     		uxth	r0, r0
+ 668              	.LVL109:
+ 111:Core/Src/servo.c **** 			break;
+ 669              		.loc 1 111 4 is_stmt 1 discriminator 4 view .LVU158
+ 670 0264 014B     		ldr	r3, .L45
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 17
+
+
+ 671 0266 1B68     		ldr	r3, [r3]
+ 672 0268 5863     		str	r0, [r3, #52]
+ 112:Core/Src/servo.c **** 		}
+ 673              		.loc 1 112 4 discriminator 4 view .LVU159
+ 114:Core/Src/servo.c **** 	}
+ 674              		.loc 1 114 12 discriminator 4 view .LVU160
+ 675              		.loc 1 117 1 is_stmt 0 discriminator 4 view .LVU161
+ 676 026a EDE6     		b	.L5
+ 677              	.L46:
+ 678              		.align	2
+ 679              	.L45:
+ 680 026c 00000000 		.word	htim2
+ 681 0270 00002240 		.word	1075970048
+ 682 0274 00407F40 		.word	1082081280
+ 683              		.cfi_endproc
+ 684              	.LFE69:
+ 686              		.text
+ 687              	.Letext0:
+ 688              		.file 2 "e:\\clion\\gcc-arm-none-eabi\\10 2020-q4-major\\arm-none-eabi\\include\\machine\\_default
+ 689              		.file 3 "e:\\clion\\gcc-arm-none-eabi\\10 2020-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 690              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 691              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 692              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 693              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 694              		.file 8 "Core/Inc/tim.h"
+ARM GAS  C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s 			page 18
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 servo.c
+C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s:16     .text.pwm_servo_init:00000000 $t
+C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s:24     .text.pwm_servo_init:00000000 pwm_servo_init
+C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s:104    .text.pwm_servo_init:0000006c $d
+C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s:115    .text.position:00000000 $t
+C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s:122    .text.position:00000000 position
+C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s:144    .text.position:0000000c $d
+C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s:156    .text.position:00000024 $t
+C:\Users\Mr.Zhu\AppData\Local\Temp\ccfuyW0P.s:680    .text.position:0000026c $d
+
+UNDEFINED SYMBOLS
+HAL_TIM_PWM_Start
+htim2
+htim3
+htim4
+__aeabi_i2d
+__aeabi_ddiv
+__aeabi_dadd
+__aeabi_d2uiz
