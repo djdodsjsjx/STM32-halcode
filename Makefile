@@ -63,7 +63,8 @@ Core/Src/Scheduler.c \
 Core/Src/filter.c \
 Core/Src/DT.c \
 Core/Src/oled.c \
-Core/Src/show.c
+Core/Src/show.c \
+Core/Src/pid.c
 
 # ASM sources
 ASM_SOURCES =  \

@@ -21,6 +21,7 @@
         "filter.h": "c",
         "dt.h": "c",
         "oled.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "pid.h": "c"
     }
 }

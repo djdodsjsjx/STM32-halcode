@@ -181,7 +181,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 
 /* USER CODE BEGIN 1 */
 #define RXBUFFERSIZE  256     //最大接收字节数
-char *RxBuffer;
+char RxBuffer[RXBUFFERSIZE];
 uint8_t aRxBuffer;			//接收中断缓冲
 uint8_t Uart1_Rx_Cnt = 0;		//接收缓冲计数
 
@@ -192,15 +192,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   /* NOTE: This function Should not be modified, when the callback is needed,
            the HAL_UART_TxCpltCallback could be implemented in the user file
    */
-  
-  Uart1_Rx_Cnt++;
-  if (*RxBuffer == '0') {
-    RxBuffer = RxBuffer - Uart1_Rx_Cnt;
+  RxBuffer[Uart1_Rx_Cnt++] = aRxBuffer;
+  if (RxBuffer[Uart1_Rx_Cnt - 1] == '0') {
     HAL_UART_Transmit_IT(&huart1, RxBuffer, Uart1_Rx_Cnt);
     Uart1_Rx_Cnt = 0;
   }
-  RxBuffer++;
-	HAL_UART_Receive_IT(&huart1, RxBuffer, 1);   //再开启接收中断
+  
+	HAL_UART_Receive_IT(&huart1, &aRxBuffer, 1);   //再开启接收中断
 
 }
 

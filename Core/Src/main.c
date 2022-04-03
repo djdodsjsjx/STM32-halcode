@@ -30,6 +30,7 @@
 #include "Scheduler.h"
 #include "mpu6050.h"
 #include "oled.h"
+#include "pid.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,7 +102,10 @@ int main(void)
   MPU6050_initialize();
   Scheduler_Setup();
   OLED_Init();
-  HAL_UART_Receive_IT(&huart1, RxBuffer, 1);
+  HAL_UART_Receive_IT(&huart1, &aRxBuffer, 1);
+
+  PID_TypeDef TPID; 
+	double Temp = 1, PIDOut, TempSetpoint = 100;
 
   
   /* USER CODE END 2 */
@@ -114,8 +118,8 @@ int main(void)
     // HAL_Delay(1000);
     // position(1, 100);
     // HAL_Delay(1000);
-    Scheduler_Run();
-
+    // Scheduler_Run();
+    Pid_Control(&TPID, &Temp, &PIDOut, &TempSetpoint);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

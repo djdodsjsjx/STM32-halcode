@@ -46,7 +46,7 @@ void DT_SendF1(int16_t a_1, int16_t a_2,int16_t a_3,int16_t a_4,int16_t a_5,int1
 	DataToSend[_cnt++] = sc;
 	DataToSend[_cnt++] = ac;
 
-	// Uart1_Put_Buf(DataToSend,_cnt);
+	HAL_UART_Transmit_IT(&huart1, &DataToSend, _cnt);
 }
 
 //mpu6050

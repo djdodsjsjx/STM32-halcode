@@ -34,9 +34,6 @@ extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN Private defines */
-#define RXBUFFERSIZE  256     //最大接收字节数
-// extern char RxBuffer[RXBUFFERSIZE];   //接收数据
-extern char *RxBuffer;
 extern uint8_t aRxBuffer;
 /* USER CODE END Private defines */
 
